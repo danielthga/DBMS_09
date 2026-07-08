@@ -274,7 +274,8 @@ for p in parts:
 
 > **Screenshot 4:** Take a screenshot showing the parts list printed in the Python REPL.
 >
-> `[insert screenshot]`
+> <img width="576" height="311" alt="image" src="https://github.com/user-attachments/assets/010eaca7-3ab8-44e8-ad04-e4d598e91c8a" />
+
 
 Exit with `exit()`.
 
@@ -290,11 +291,13 @@ git push
 
 **Question 2.1:** `r.raise_for_status()` raises an exception if the server returned a 4xx or 5xx status code. What would happen if this call were omitted and the server returned `409 Conflict`?
 
-> *Your answer:*
+> If you remove r.raise_for_status(), the request will not raise an exception on 409 Conflict.
+> The UI code will continue as if the request succeeded, and you will likely try to read r.json() and display a success message — even though the server actually rejected the operation.
 
 **Question 2.2:** `BASE_URL` and `HEADERS` are module-level variables set at runtime by the connection dialog. Why is this approach preferable to reading them from a configuration file on disk?
 
-> *Your answer:*
+> Because the API URL and key are runtime configuration, not static configuration.
+> A GUI app must let the user choose the server and credentials at startup — a file on disk cannot guarantee correctness, security, or portability.
 
 ---
 
