@@ -717,11 +717,13 @@ The connection dialog should appear. Enter the base URL (`http://128.140.85.215:
 
 > **Screenshot 5:** Take a screenshot of the connection dialog.
 >
-> `[insert screenshot]`
+> <img width="455" height="182" alt="image" src="https://github.com/user-attachments/assets/88fb6675-e64b-4e7a-ab8c-62f62ffbdd50" />
+
 
 > **Screenshot 6:** Take a screenshot of the main window showing the Parts tab populated with data from the live server.
 >
-> `[insert screenshot]`
+> <img width="825" height="659" alt="image" src="https://github.com/user-attachments/assets/34274c57-4e5d-444a-b9d3-ca98efa6c80e" />
+
 
 ### Step 4 – Commit
 
