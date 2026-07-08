@@ -49,7 +49,8 @@ Open that URL in your browser before writing a single line of code — the Swagg
 
 > **Screenshot 1:** Take a screenshot of the Swagger UI showing the list of available endpoints.
 >
-> `[insert screenshot]`
+> <img width="2845" height="2020" alt="grafik" src="https://github.com/user-attachments/assets/c7362d4e-4721-4b03-8609-cbd08846edc7" />
+
 
 ---
 
