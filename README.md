@@ -936,7 +936,8 @@ On Windows: `fabrik-frontend.exe` instead.
 
 > **Screenshot 13:** The application running from the PyInstaller-built executable.
 >
-> `[insert screenshot]`
+> <img width="457" height="259" alt="image" src="https://github.com/user-attachments/assets/9897722b-b20f-4b37-b433-a8ae0dcab5fd" />
+
 
 > **Note:** PyInstaller builds are platform-specific. A build on Linux produces a Linux binary only. To distribute for all three platforms you need to build once on each operating system (or use a CI/CD pipeline).
 
@@ -980,7 +981,8 @@ fabrik-frontend
 
 > **Screenshot 14:** Terminal showing the `.deb` installation and the application launching from `/usr/bin/fabrik-frontend`.
 >
-> `[insert screenshot]`
+> <img width="634" height="421" alt="image" src="https://github.com/user-attachments/assets/dc4a6f50-9536-436b-9f08-203df50aaa15" />
+
 
 ---
 
@@ -1067,11 +1069,13 @@ git push
 
 **Question 8.1:** PyInstaller bundles a complete Python interpreter into `_internal/`. What is the typical size of a PyInstaller `--onedir` output compared to a minimal Python installation, and why is `--onedir` generally preferred over `--onefile` for desktop applications?
 
-> *Your answer:*
+> A typical PyInstaller --onedir build is 40–80 MB, which is much larger than a minimal Python installation (~15–25 MB).
+> --onedir is preferred because it is more stable, easier to debug, and avoids the extraction‑time failures that plague --onefile.
 
 **Question 8.2:** A `.deb` package installed via `dpkg -i` does not appear in the system package manager's update mechanism. Which tool and repository format would you use to distribute updates automatically to Debian/Ubuntu users?
 
-> *Your answer:*
+> To distribute automatic updates to Debian/Ubuntu users, you publish your application through an APT repository (Debian package repository) and serve it using a repository tool such as aptly or reprepro.
+> Users then receive updates through the normal system update mechanism (apt update && apt upgrade).
 
 ---
 
@@ -1080,22 +1084,25 @@ git push
 **Question A – Separation of Concerns:**  
 `api.py` contains all HTTP logic; `ui.py` contains all widget code; `__main__.py` wires them together. Name one concrete benefit this separation provides when you want to write automated tests for the API client.
 
-> *Your answer:*
+> Because the HTTP logic lives in api.py and not inside the UI code, you can test the API client without launching Tkinter at all. This makes automated tests fast, deterministic, and runnable in CI.
 
 **Question B – Event-Driven vs Sequential:**  
 A fellow student proposes using a `while True` loop in the main thread to poll the API every 5 seconds and update the display. Explain why this approach would break the tkinter application, and describe the correct alternative.
 
-> *Your answer:*
+> A while True loop in the main thread would freeze Tkinter completely, because Tkinter’s event loop can no longer process redraws, clicks, or window updates.
+> The correct alternative is to use Tkinter’s event‑driven scheduling via root.after(5000, poll_api) or run the polling in a background thread that reports results back to the UI using after().
 
 **Question C – API Key in the Dialog:**  
 The connection dialog collects the API key at runtime and stores it in `api.HEADERS` for the session only. It is never written to disk. What are the security advantages of this approach compared to storing the key in a configuration file in the user's home directory?
 
-> *Your answer:*
+> Storing the API key only in memory means it never sits on disk, so it can’t be leaked through config files, backups, Git sync, shared home directories, or malware that scans ~/.config.
+> It disappears when the app closes, which makes it much harder for attackers to steal.
 
 **Question D – The Full Stack:**  
 You have now touched every layer of the system: PostgreSQL database → Docker Compose deployment → FastAPI REST layer → tkinter desktop client → native installer. Describe in one sentence the role of each layer, and explain which layer a new employee would need to understand to add a sixth part to the bill of materials without changing any other layer.
 
-> *Your answer:*
+> PostgreSQL stores the persistent production data, Docker Compose provides the runtime environment and service wiring, FastAPI exposes the REST API for all business operations, tkinter renders the desktop UI, and the native installer delivers the application to end‑users.
+> A new employee only needs to understand the FastAPI layer to add a sixth part to the bill of materials, because the database schema, Compose setup, UI, and installer all consume the API without needing changes.
 
 ---
 
