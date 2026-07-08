@@ -737,11 +737,12 @@ git push
 
 **Question 4.1:** The `_refresh_all()` method is called in `__init__` and makes three HTTP requests before `mainloop()` starts. In what scenario could this block the UI from appearing? How would you fix it?
 
-> *Your answer:*
+> If _refresh_all() makes three slow HTTP requests before mainloop() starts, the UI will not appear until all requests finish.
+> The window will feel “frozen” or may not show at all. The fix is to run the refresh after the UI is visible — either using root.after(...) or a background thread.
 
 **Question 4.2:** When `api.post_produktion()` raises an exception (e.g. `409 Conflict` due to insufficient parts), `messagebox.showerror` displays the error to the user. Look at the `requests` library documentation: what type of exception does `raise_for_status()` raise, and what attribute contains the server's response body?
 
-> *Your answer:*
+> raise_for_status() raises a requests.exceptions.HTTP Error, and the server’s response body is available on the exception via the .response attribute — specifically e.response.text or e.response.json().
 
 ---
 
@@ -758,7 +759,8 @@ In the **Parts** tab, use the *Deliver parts* form:
 
 > **Screenshot 7:** Parts tab after delivering, showing updated stock values.
 >
-> `[insert screenshot]`
+> <img width="823" height="665" alt="image" src="https://github.com/user-attachments/assets/5a1bb739-2e10-4dc9-bdb3-90bda567a28c" />
+
 
 ### Step 2 – Record a Production Run
 
