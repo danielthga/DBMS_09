@@ -178,11 +178,13 @@ git push -u origin main
 
 **Question 1.1:** `uv` creates a `uv.lock` file alongside `pyproject.toml`. What is the difference between the two files? Why should `uv.lock` be committed to version control?
 
-> *Your answer:*
+> pyproject.toml defines what your project depends on, while uv.lock records the exact versions that were installed.
+> You commit uv.lock so every developer and every machine uses identical dependency versions, ensuring reproducible builds.
 
 **Question 1.2:** `uv run` executes a command inside the project's virtual environment without you having to activate it manually. What problem does this solve compared to relying on the system-wide Python installation?
 
-> *Your answer:*
+> uv run ensures your script always uses the correct project‑specific dependencies, instead of whatever random versions happen to be installed in your system‑wide Python.
+> This prevents version conflicts, broken imports, and “works on my machine” bugs.
 
 ---
 
