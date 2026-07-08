@@ -759,7 +759,8 @@ In the **Parts** tab, use the *Deliver parts* form:
 
 > **Screenshot 7:** Parts tab after delivering, showing updated stock values.
 >
-> <img width="823" height="665" alt="image" src="https://github.com/user-attachments/assets/5a1bb739-2e10-4dc9-bdb3-90bda567a28c" />
+> <img width="825" height="659" alt="image" src="https://github.com/user-attachments/assets/89d206d3-42e4-4930-abe6-f3e10f7d174a" />
+
 
 
 ### Step 2 – Record a Production Run
@@ -772,7 +773,8 @@ In the **Products** tab, use the *Record production run* form:
 
 > **Screenshot 8:** Parts tab after production, showing reduced stock.
 >
-> `[insert screenshot]`
+> <img width="826" height="660" alt="image" src="https://github.com/user-attachments/assets/72162ff2-e1a9-45c5-9d8d-f99e13cfdb2a" />
+
 
 ### Step 3 – Check the Bill of Materials
 
@@ -780,7 +782,8 @@ Switch to the **Bill of Materials** tab. Enter Product ID `2` (Racing bike frame
 
 > **Screenshot 9:** Bill of Materials tab showing all five parts for the racing bike frame.
 >
-> `[insert screenshot]`
+> <img width="826" height="327" alt="image" src="https://github.com/user-attachments/assets/9706af99-de91-4ce3-ba88-d33ae7816835" />
+
 
 ### Step 4 – Check Out a Finished Product
 
@@ -790,7 +793,8 @@ In the **Products** tab, use the *Check out from warehouse* form:
 
 > **Screenshot 10:** Products tab after checkout, showing `Total out` incremented by 1.
 >
-> `[insert screenshot]`
+> <img width="825" height="660" alt="image" src="https://github.com/user-attachments/assets/503bebdf-f79f-4e9e-b0e1-a8bb541c5a7b" />
+
 
 ### Step 5 – Trigger a Reorder Warning
 
@@ -798,7 +802,8 @@ Deliver only 1 steel tube (Part ID `1`) to bring stock very low, then produce 1 
 
 > **Screenshot 11:** Reorder Warnings tab showing at least one warning entry.
 >
-> `[insert screenshot]`
+> <img width="824" height="303" alt="image" src="https://github.com/user-attachments/assets/663ccda1-6e4b-41cc-9dd7-abf7a564e903" />
+
 
 ### Step 6 – Stocktake Correction
 
@@ -857,7 +862,8 @@ fabrik-frontend
 
 > **Screenshot 12:** Terminal showing `ls dist/` with both distribution files.
 >
-> `[insert screenshot]`
+> <img width="578" height="178" alt="image" src="https://github.com/user-attachments/assets/6d4807b9-ecfa-4a0c-9adb-c66f473d8d59" />
+
 
 ### Step 2 – Commit
 
@@ -873,11 +879,13 @@ git push
 
 **Question 6.1:** A `.whl` file still requires Python to be installed on the target machine. What problem does PyInstaller solve that `uv build` does not?
 
-> *Your answer:*
+> PyInstaller solves the problem of running your application on a machine without Python installed.
+> uv build only produces a wheel (.whl), which still requires a Python interpreter and environment on the target system.
 
 **Question 6.2:** `[project.scripts]` defines `fabrik-frontend = "fabrik_frontend.__main__:main"`. Explain what happens when a user runs the command `fabrik-frontend` in their terminal after installing the wheel.
 
-> *Your answer:*
+> Running fabrik-frontend launches Python, imports the module fabrik_frontend.__main__, looks up the function main, and executes it.
+> This gives the user a real command-line program, even though the code lives inside a wheel.
 
 ---
 
