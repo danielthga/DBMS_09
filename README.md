@@ -103,7 +103,8 @@ python3 --version
 
 > **Screenshot 2:** Take a screenshot showing the version outputs of `uv` and `python3`.
 >
-> `[insert screenshot]`
+> <img width="428" height="234" alt="image" src="https://github.com/user-attachments/assets/3e029888-1dbc-44ee-bd9f-b81fbc7cef64" />
+
 
 ---
 
@@ -162,7 +163,8 @@ uv run python -c "import requests; print('requests', requests.__version__)"
 
 > **Screenshot 3:** Take a screenshot showing the output confirming `requests` is available.
 >
-> `[insert screenshot]`
+> <img width="629" height="82" alt="image" src="https://github.com/user-attachments/assets/3d547d17-40b9-4280-9699-a0a338d7ceaf" />
+
 
 ### Step 5 – Commit
 
